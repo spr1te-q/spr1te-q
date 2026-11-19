@@ -1,0 +1,26 @@
+name: Update GitLab activity
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate activity calendar
+        run: python3 update_gitlab_activity.py
+      - name: Save updated calendar
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add gitlab-activity.svg
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update GitLab activity calendar'
+            git push
+          fi
