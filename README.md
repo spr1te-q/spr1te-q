@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="logo.png" width="120" alt="Live Russia logo">
+  <img src="logo-glass.png" width="120" alt="Live Russia logo">
   <br><br>
   <img src="terry-davis-cigarette.gif" width="220" alt="Terry Davis spinning with a cigarette">
   <br><br>
